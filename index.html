@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart India Hackathon 2026 - ICFAI University, Jaipur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#030712',
+                        cardDark: '#0B1120',
+                        cardBorder: '#1E293B',
+                        accentBlue: '#3B82F6',
+                        accentOrange: '#F97316',
+                        accentYellow: '#EAB308',
+                        neonPurple: '#8B5CF6'
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 4s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Link External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+    class="bg-[#030712] text-slate-100 antialiased selection:bg-amber-500 selection:text-black relative bg-grid-pattern">
+
+    <!-- Ambient Background Orbs -->
+    <div class="glow-orb-blue top-0 -left-20 animate-pulse-slow"></div>
+    <div class="glow-orb-amber top-96 right-0 animate-pulse-slow"></div>
+
+    <!-- NAVBAR -->
+    <header
+        class="sticky top-0 z-40 backdrop-blur-2xl bg-[#030712]/85 border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3 sm:gap-4 group cursor-pointer">
+                <div
+                    class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-amber-400 via-orange-500 to-amber-600 flex items-center justify-center text-black font-black text-xl sm:text-2xl shadow-lg shadow-amber-500/25 group-hover:rotate-12 transition-transform duration-300">
+                    S
+                </div>
+                <div>
+                    <h1
+                        class="font-bold text-xs sm:text-base tracking-wide group-hover:text-amber-400 transition-colors">
+                        Smart India Hackathon 2026</h1>
+                    <p class="text-[10px] sm:text-xs text-slate-400 font-medium">THE ICFAI UNIVERSITY, JAIPUR</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav
+                class="hidden lg:flex items-center gap-7 bg-slate-900/90 px-8 py-2.5 rounded-full border border-slate-800 text-sm font-semibold text-slate-300 shadow-2xl">
+                <a href="#home" class="hover:text-amber-400 transition-colors text-amber-400">Home</a>
+                <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
+                <a href="#details" class="hover:text-amber-400 transition-colors">Details</a>
+                <a href="#timeline" class="hover:text-amber-400 transition-colors">Timeline</a>
+                <a href="#themes" class="hover:text-amber-400 transition-colors">Themes</a>
+                <a href="#rules" class="hover:text-amber-400 transition-colors">Rules</a>
+                <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+            </nav>
+
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#register"
+                    class="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all shadow-xl shadow-blue-600/30 hover:scale-105 active:scale-95">
+                    Register Team &rarr;
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()"
+                class="lg:hidden text-slate-300 hover:text-amber-400 focus:outline-none p-2" aria-label="Toggle Menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-slate-950/95 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()"
+                class="block text-slate-300 hover:text-amber-400 font-medium py-1">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()"
+                class="block text-slate-300 hover:text-amber-400 font-medium py-1">About</a>
+            <a href="#details" onclick="toggleMobileMenu()"
+                class="block text-slate-300 hover:text-amber-400 font-medium py-1">Details</a>
+            <a href="#timeline" onclick="toggleMobileMenu()"
+                class="block text-slate-300 hover:text-amber-400 font-medium py-1">Timeline</a>
+            <a href="#themes" onclick="toggleMobileMenu()"
+                class="block text-slate-300 hover:text-amber-400 font-medium py-1">Themes</a>
+            <a href="#rules" onclick="toggleMobileMenu()"
+                class="block text-slate-300 hover:text-amber-400 font-medium py-1">Rules</a>
+            <a href="#contact" onclick="toggleMobileMenu()"
+                class="block text-slate-300 hover:text-amber-400 font-medium py-1">Contact</a>
+            <div class="pt-2">
+                <a href="#register" onclick="toggleMobileMenu()"
+                    class="block text-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg">
+                    Register Team &rarr;
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- DYNAMIC COUNTDOWN BANNER -->
+    <div
+        class="bg-gradient-to-r from-amber-500/10 via-blue-500/10 to-amber-500/10 border-b border-amber-500/20 py-3 px-4 text-center">
+        <div
+            class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm font-semibold">
+            <span class="text-amber-400 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping shrink-0"></span>
+                <strong>Abstract Deadline approaching:</strong>
+            </span>
+            <div id="countdown"
+                class="flex gap-2 sm:gap-3 font-mono text-xs sm:text-base text-white bg-slate-950/80 px-3 sm:px-4 py-1 rounded-lg border border-amber-500/30 shadow-inner">
+                <span><strong id="days">00</strong>d</span>
+                <span><strong id="hours">00</strong>h</span>
+                <span><strong id="minutes">00</strong>m</span>
+                <span><strong id="seconds">00</strong>s</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 reveal">
+        <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+            <div class="flex flex-wrap gap-3">
+                <span
+                    class="text-xs font-bold px-3 sm:px-4 py-2 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span> Government of India
+                    Initiative
+                </span>
+                <span
+                    class="text-xs font-bold px-3 sm:px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">
+                    AICTE Approved Selection
+                </span>
+            </div>
+
+            <p
+                class="text-xs sm:text-sm text-amber-400 tracking-widest uppercase font-extrabold flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> THE ICFAI UNIVERSITY, JAIPUR
+            </p>
+
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight">
+                Internal Hackathon<br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500">Smart
+                    India</span><br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-500">Hackathon
+                    2026</span>
+            </h1>
+            <p
+                class="text-slate-300 max-w-2xl text-sm sm:text-lg leading-relaxed border-l-4 border-blue-500 pl-4 sm:pl-5 py-1">
+                Join Rajasthan's premier college hackathon at The ICFAI University, Jaipur. Solve
+                nation-building problem statements, build innovations during the university implementation round, and
+                earn direct nomination to the National Smart India Hackathon 2026 Grand Finale.
+            </p>
+
+            <div class="flex flex-wrap gap-4 sm:gap-5 pt-4">
+                <a href="#register"
+                    class="w-full sm:w-auto text-center bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-black text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl transition-all shadow-xl shadow-amber-500/30 hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
+                    🚀 Register Team &rarr;
+                </a>
+                <button onclick="openModal()"
+                    class="w-full sm:w-auto border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-slate-200 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base font-bold transition-all hover:border-amber-500/50 flex items-center justify-center gap-3 shadow-lg hover:scale-105">
+                    📥 View / Download Poster
+                </button>
+            </div>
+        </div>
+
+        <!-- HERO POSTER SECTION -->
+        <div class="lg:col-span-5 animate-float">
+            <div class="glass-card rounded-3xl p-4 sm:p-6 shadow-2xl relative border-amber-500/30">
+                <div class="flex justify-between items-center mb-4 px-2">
+                    <span class="text-xs font-black text-slate-400 tracking-wider uppercase">OFFICIAL EVENT
+                        POSTER</span>
+                    <span
+                        class="text-xs text-blue-400 font-bold bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">LIVE
+                        EVENT</span>
+                </div>
+
+                <div onclick="openModal()"
+                    class="relative group cursor-pointer overflow-hidden rounded-2xl border border-slate-800 bg-slate-950">
+                    <img id="posterThumb" src="sihposter.png" alt="Official SIH 2026 Poster"
+                        class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2">
+                        <span
+                            class="bg-amber-500 text-black text-xs font-black px-4 py-2 rounded-full shadow-lg transform group-hover:scale-105 transition-transform text-center">🔍
+                            Click to Preview Poster</span>
+                    </div>
+                </div>
+
+                <div
+                    class="mt-5 grid grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm bg-slate-950/90 p-3 sm:p-4 rounded-2xl border border-slate-800">
+                    <div>
+                        <p class="text-slate-400 font-medium">📅 Hackathon Dates</p>
+                        <p class="font-bold text-slate-100 mt-1">September 1-2, 2026</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-400 font-medium">📍 Campus Venue</p>
+                        <p class="font-bold text-slate-100 mt-1">ICFAI University Jaipur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="posterModal"
+        class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div
+            class="bg-[#0B1120] border border-blue-500/40 rounded-3xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl relative space-y-4 sm:space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div class="flex items-center gap-2 text-amber-400 font-bold text-xs sm:text-base">
+                    <span>👁️</span> Official Smart India Hackathon 2026 Event Poster
+                </div>
+                <button onclick="closeModal()"
+                    class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 flex items-center justify-center font-bold">✕</button>
+            </div>
+
+            <div
+                class="rounded-2xl overflow-hidden border border-slate-800 bg-black flex justify-center max-h-[60vh] sm:max-h-[70vh]">
+                <img id="modalImg" src="sihposter.png" alt="SIH 2026 High Res Poster"
+                    class="object-contain max-h-[60vh] sm:max-h-[70vh] w-auto">
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                <a href="sihposter.png" download="sihposter.png"
+                    class="w-full sm:w-auto text-center bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 hover:scale-105">
+                    📥 Download High-Res Poster
+                </a>
+                <div class="flex flex-wrap w-full sm:w-auto gap-2 sm:gap-3">
+                    <a href="sihposter.png" target="_blank"
+                        class="flex-1 sm:flex-none text-center bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-bold px-4 sm:px-5 py-3 rounded-xl transition-colors">
+                        ↗ Open Tab
+                    </a>
+                    <button onclick="closeModal()"
+                        class="flex-1 sm:flex-none bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs sm:text-sm font-bold px-4 sm:px-5 py-3 rounded-xl transition-colors">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-slate-900 relative z-10 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/30">About
+                The Event</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mt-5">What is <span class="text-blue-500">Smart
+                    India</span> <span class="text-amber-500">Hackathon?</span></h2>
+            <p class="text-slate-300 text-sm sm:text-lg mt-4 leading-relaxed">Smart India Hackathon (SIH) is a
+                nationwide initiative by the Ministry of Education's Innovation Cell (MIC) and AICTE to provide students
+                a platform to solve pressing real-world challenges.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 sm:gap-10">
+            <div class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden group hover:border-amber-500/50">
+                <div
+                    class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-xl sm:text-2xl mb-6 border border-amber-500/30 group-hover:scale-110 transition-transform">
+                    🚩</div>
+                <h3 class="text-xl sm:text-2xl font-extrabold mb-2 text-white">Government of India Initiative</h3>
+                <p class="text-xs sm:text-sm text-blue-400 mb-4 font-bold">World's Biggest Open Innovation Model</p>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">SIH is designed to inculcate a
+                    culture of product innovation and a mindset of problem-solving. It allows students to work on
+                    challenges presented by Ministries and leading tech multinationals.</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between group hover:border-blue-500/50">
+                <div>
+                    <div
+                        class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-xl sm:text-2xl mb-6 border border-blue-500/30 group-hover:scale-110 transition-transform">
+                        🏛️</div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold mb-2 text-white">The ICFAI University, Jaipur</h3>
+                    <p class="text-xs sm:text-sm text-amber-400 mb-4 font-bold">HOST & ORGANIZER</p>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">Providing state-of-the-art labs,
+                        high-speed internet, and mentorship to empower students during the 16-hour internal university
+                        implementation round.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILS SECTION -->
+    <section id="details"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-slate-900 relative z-10 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/30">Event
+                Particulars</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mt-5">Event <span
+                    class="text-blue-500">Details</span> & <span class="text-amber-500">Key Highlights</span></h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div class="glass-card p-6 sm:p-7 rounded-3xl space-y-2">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl mb-4">
+                    📅</div>
+                <p class="text-xs text-blue-400 uppercase font-black tracking-wider">EVENT DATES</p>
+                <p class="text-lg sm:text-xl font-bold text-white">September 1-2, 2026</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-7 rounded-3xl space-y-2">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4">
+                    📍</div>
+                <p class="text-xs text-amber-400 uppercase font-black tracking-wider">CAMPUS VENUE</p>
+                <p class="text-lg sm:text-xl font-bold text-white">ICFAI University Jaipur</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-7 rounded-3xl space-y-2">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center text-xl mb-4">
+                    💻</div>
+                <p class="text-xs text-orange-400 uppercase font-black tracking-wider">HACKATHON MODE</p>
+                <p class="text-lg sm:text-xl font-bold text-white">16-Hour University Implementation</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-7 rounded-3xl space-y-2">
+                <div
+                    class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4">
+                    🕒</div>
+                <p class="text-xs text-amber-400 uppercase font-black tracking-wider">REGISTRATION DEADLINE</p>
+                <p class="text-lg sm:text-xl font-bold text-white">August 20, 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE SECTION -->
+    <section id="timeline"
+        class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-slate-900 relative z-10 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/30">EVENT
+                SCHEDULE</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mt-4">Hackathon <span
+                    class="text-blue-500">Time</span><span class="text-amber-500">line</span></h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-3">Follow the journey from initial registration to the Grand
+                Finale of Smart India Hackathon 2026.</p>
+        </div>
+
+        <div class="relative max-w-4xl mx-auto">
+            <div
+                class="absolute left-1/2 transform -translate-x-1/2 top-4 bottom-4 w-1 bg-gradient-to-b from-blue-500 via-amber-500 to-indigo-600 rounded-full hidden md:block">
+            </div>
+
+            <div class="space-y-8 sm:space-y-12">
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 hidden md:block"></div>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-blue-400 z-10 shadow-lg shadow-blue-500/20 hidden md:flex">
+                        👥</div>
+                    <div class="w-full md:w-5/12 glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-xs font-bold bg-slate-800 text-blue-400 px-3 py-1 rounded-full font-mono">15
+                                July 2026</span>
+                            <span
+                                class="text-[10px] font-black bg-blue-500/20 text-blue-400 px-2.5 py-1 rounded-md tracking-wider uppercase">COMPLETED</span>
+                        </div>
+                        <h4 class="font-extrabold text-white text-base sm:text-lg">Registration Open</h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Online registration opens for all ICFAI
+                            University students across all engineering and tech branches.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-xs font-bold bg-slate-800 text-blue-400 px-3 py-1 rounded-full font-mono">15
+                                August 2026</span>
+                            <span
+                                class="text-[10px] font-black bg-blue-500/20 text-blue-400 px-2.5 py-1 rounded-md tracking-wider uppercase">COMPLETED</span>
+                        </div>
+                        <h4 class="font-extrabold text-white text-base sm:text-lg">Team Formation & Problem Selection
+                        </h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Form a 6-member team (mandatory at least
+                            one female candidate) and choose your target problem statement.</p>
+                    </div>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-blue-400 z-10 shadow-lg shadow-blue-500/20 hidden md:flex">
+                        👤</div>
+                    <div class="w-full md:w-5/12 hidden md:block"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 hidden md:block"></div>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-2 border-amber-500 flex items-center justify-center text-amber-400 z-10 shadow-lg shadow-amber-500/40 animate-pulse hidden md:flex">
+                        📄</div>
+                    <div
+                        class="w-full md:w-5/12 glass-card p-5 sm:p-6 rounded-2xl border-amber-500/85 shadow-lg shadow-amber-500/10">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-xs font-bold bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full font-mono">20
+                                 August 2026</span>
+                            <span
+                                class="text-[10px] font-black bg-amber-500 text-black px-2.5 py-1 rounded-md tracking-wider uppercase animate-pulse">ACTIVE</span>
+                        </div>
+                        <h4 class="font-extrabold text-white text-base sm:text-lg">Final Registration Deadline</h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Submit your team details and presentation
+                            abstracts via the official website before the last date.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-xs font-bold bg-slate-800 text-slate-400 px-3 py-1 rounded-full font-mono">1
+                                September 2026</span>
+                            <span
+                                class="text-[10px] font-black bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md tracking-wider uppercase">UPCOMING</span>
+                        </div>
+                        <h4 class="font-extrabold text-white text-base sm:text-lg">Internal Hackathon & 16-Hour
+                            Implementation</h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Special 16-hour implementation round at
+                            the ICFAI University campus where students build and demonstrate their products.</p>
+                    </div>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 z-10 hidden md:flex">
+                        &lt;/&gt;</div>
+                    <div class="w-full md:w-5/12 hidden md:block"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 hidden md:block"></div>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 z-10 hidden md:flex">
+                        👨‍⚖️</div>
+                    <div class="w-full md:w-5/12 glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-xs font-bold bg-slate-800 text-slate-400 px-3 py-1 rounded-full font-mono">2
+                                September 2026</span>
+                            <span
+                                class="text-[10px] font-black bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md tracking-wider uppercase">UPCOMING</span>
+                        </div>
+                        <h4 class="font-extrabold text-white text-base sm:text-lg">Jury Evaluation & Pitching</h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Expert panel evaluation, live code
+                            demonstration, prototype testing, and Q&A sessions.</p>
+                    </div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-xs font-bold bg-slate-800 text-slate-400 px-3 py-1 rounded-full font-mono">2
+                                September 2026</span>
+                            <span
+                                class="text-[10px] font-black bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md tracking-wider uppercase">UPCOMING</span>
+                        </div>
+                        <h4 class="font-extrabold text-white text-base sm:text-lg">Winner Announcement & SIH Nomination
+                        </h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Top teams nominated for the official
+                            national-level Smart India Hackathon 2026 portal.</p>
+                    </div>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 z-10 hidden md:flex">
+                        🏆</div>
+                    <div class="w-full md:w-5/12 hidden md:block"></div>
+                </div>
+
+                <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                    <div class="w-full md:w-5/12 hidden md:block"></div>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 z-10 hidden md:flex">
+                        🌐</div>
+                    <div class="w-full md:w-5/12 glass-card p-5 sm:p-6 rounded-2xl border-slate-800">
+                        <div class="flex items-center justify-between mb-3">
+                            <span
+                                class="text-xs font-bold bg-slate-800 text-slate-400 px-3 py-1 rounded-full font-mono">December
+                                2026</span>
+                            <span
+                                class="text-[10px] font-black bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md tracking-wider uppercase">UPCOMING</span>
+                        </div>
+                        <h4 class="font-extrabold text-white text-base sm:text-lg">SIH 2026 Grand Finale</h4>
+                        <p class="text-xs text-slate-300 mt-2 leading-relaxed">Selected teams travel to designated nodal
+                            centers across India for the national Grand Finale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANNOUNCEMENT SECTION -->
+    <section id="announcements"
+        class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-slate-900 relative z-10 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/30">OFFICIAL
+                GUIDELINES</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mt-4">Announcement</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-3">Please carefully read all the rules and eligibility
+                criteria before registering your team.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4">
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">1</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    The last date for registration is September 15th. After the last date, students will not be allowed
+                    to participate. Teams must include <strong class="text-amber-400">at least one girl
+                        candidate</strong>.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">2</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Students can only register through the official website, not through any other means or offline
+                    forms.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">3</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    The inter-college/inner-college hackathon updates and schedules will be announced soon on the
+                    portal.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">4</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Students must arrive in proper college attire along with their required personal electronic devices.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">5</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    In case of any emergency, students should immediately contact the coordinating teachers or student
+                    team leads.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">6</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Important update for the internal hackathon: There is a mandatory <strong
+                        class="text-amber-400">16-hour implementation round</strong> within the university where student
+                    teams must fully implement their products.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM STATEMENTS AND PRIZES SECTION -->
+    <section id="themes"
+        class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-slate-900 relative z-10 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/30">HACKATHON
+                DOMAINS</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mt-4">PROBLEM STATEMENTS AND PRIZES TO BE WON</h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-3">Explore problem statements and winning rewards.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4 mb-8">
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">1</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    SIH 2026 brings you problem statements from leading public and private organizations, union
+                    ministries, state governments, and NGOs in India. Teams must include <strong
+                        class="text-amber-400">at least one girl candidate</strong>.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">2</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    There would be ONE single winning team for every problem statement posted on the portal. The prize
+                    money will be given by the collaborating ministry/industry ONLY IF that organization approves and
+                    likes the winning team's idea.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">3</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Attractive prize amounts will be awarded corresponding to each winning problem statement category.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">4</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Teams are encouraged to think out-of-the-box and provide creative solutions under the ‘Students
+                    Innovation’ category. Note that a maximum of 100 teams are allowed from a single college.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">5</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Prize money for the student innovation category will be Rs. 100,000/- per theme.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">6</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Participating teams must successfully clear the internal university 16-hour product implementation
+                    stage to qualify for further rounds.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex justify-center text-center">
+            <a href="https://sih.gov.in/#sihthemes" target="_blank"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-black text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-amber-500/30 hover:scale-105 active:scale-95">
+                <span>✨</span> Explore All Themes on SIH Portal ↗
+            </a>
+        </div>
+    </section>
+
+    <!-- RULES SECTION -->
+    <section id="rules"
+        class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-slate-900 relative z-10 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/30">OFFICIAL
+                GUIDELINES</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mt-4">Rules & <span
+                    class="text-amber-500">Regulation</span></h2>
+            <p class="text-slate-400 text-xs sm:text-sm mt-3">Please carefully read all the rules and eligibility
+                criteria before registering your team.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4">
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">1</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    All team members should be from the same college; no inter-college teams are allowed. Cross-branch
+                    members are encouraged with <strong class="text-amber-400">at least one girl candidate</strong>.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">2</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Each team must mandatorily comprise <strong class="text-amber-400">6 members</strong>, including the
+                    team leader and mandatory female participation.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">3</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    For the Software Edition, after teams are shortlisted, each team will have the option of selecting
+                    <strong class="text-blue-400">2 mentors</strong> from industry or academia.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">4</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    If a team is selected for the final Hackathon, members will need to travel to the assigned nodal
+                    center anywhere across India.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">5</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Shortlisted teams traveling for the grand finale will be eligible to receive reimbursement for
+                    travel via <strong class="text-amber-400">2nd Class sleeper railway fare</strong>.
+                </p>
+            </div>
+
+            <div
+                class="glass-card p-5 sm:p-6 rounded-2xl flex items-start gap-4 border-slate-800 hover:border-amber-500/50">
+                <span
+                    class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-extrabold text-sm shrink-0 border border-amber-500/30">6</span>
+                <p class="text-slate-200 text-xs sm:text-base leading-relaxed">
+                    Reimbursement will be paid at the grand finale nodal centers upon producing original train tickets
+                    and completing necessary claim forms.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / MULTI-STEP REGISTRATION SECTION -->
+    <section id="contact"
+        class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 border-t border-slate-900 relative z-10 reveal">
+        <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-2 rounded-full border border-amber-500/30">GET
+                IN TOUCH</span>
+            <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mt-4">Contact <span
+                    class="text-blue-500">Event</span> <span class="text-amber-500">Organizers</span></h2>
+            <p class="text-slate-300 text-sm sm:text-base mt-3">Have questions regarding team composition, problem
+                statements, or registration?</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 sm:gap-10 items-start" id="register">
+            <!-- Left Side: Contact Cards -->
+            <div class="lg:col-span-5 space-y-5">
+                <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-2">
+                    <p class="text-xs font-black text-amber-400 uppercase tracking-wider">STUDENT COORDINATOR</p>
+                    <p class="font-extrabold text-slate-100 text-lg sm:text-xl">Himanshu Puri</p>
+                    <p class="text-xs sm:text-sm text-slate-300">🎓 Student Coordinator, ICFAI University</p>
+                    <p class="text-xs sm:text-sm text-slate-300">📞 +91 9983196824</p>
+                </div>
+
+                <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-2">
+                    <p class="text-xs font-black text-amber-400 uppercase tracking-wider">STUDENT COORDINATOR</p>
+                    <p class="font-extrabold text-slate-100 text-lg sm:text-xl">Harshit Sharma</p>
+                    <p class="text-xs sm:text-sm text-slate-300">🎓 Student Coordinator, ICFAI University</p>
+                    <p class="text-xs sm:text-sm text-slate-300">📞 +91 95295 40315</p>
+                </div>
+
+                <div class="glass-card p-5 sm:p-6 rounded-2xl space-y-2">
+                    <p class="text-xs font-black text-orange-400 uppercase tracking-wider">VENUE ADDRESS</p>
+                    <p class="font-extrabold text-slate-100 text-base sm:text-lg">The ICFAI University, Jaipur</p>
+                    <p class="text-xs sm:text-sm text-slate-300">Agra Road, Jamdoli, Jaipur, Rajasthan 302031</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Multi-Step Registration Form -->
+            <div class="lg:col-span-7 glass-card p-5 sm:p-6 rounded-3xl">
+                <!-- Step Indicator Header -->
+                <div class="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 id="formStepTitle" class="text-lg sm:text-xl font-black text-white">Step 1: Team Leader
+                            Details</h3>
+                        <p id="formStepSubtitle" class="text-xs text-slate-300 mt-0.5">Provide team leader and team name
+                            details.</p>
+                    </div>
+                    <span id="stepBadge"
+                        class="text-[11px] font-mono font-bold bg-amber-500/20 text-amber-400 px-2.5 py-1 rounded-full border border-amber-500/30">Step
+                        1 of 6</span>
+                </div>
+
+                <form id="multiStepForm" onsubmit="handleFinalSubmit(event)" class="space-y-3">
+
+                    <!-- STEP 1: Team Leader Details -->
+                    <div class="form-step space-y-2.5" data-step="1">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Team Leader Name *</label>
+                            <input type="text" name="leaderName" required placeholder="Enter team leader name"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Select Branch *</label>
+                                <select name="leaderBranch" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Branch</option>
+                                    <option value="BTech-CSE">BTech-CSE</option>
+                                    <option value="BTech-AI&DS">BTech-AI&DS</option>
+                                    <option value="BCA-Gen">BCA-Gen</option>
+                                    <option value="BCA-DS">BCA-DS</option>
+                                    <option value="BCA-AI">BCA-AI</option>
+                                    <option value="BCA-CYBER">BCA-CYBER</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="Other-Branch">Other-Branch</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Year *</label>
+                                <select name="leaderYear" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Email ID *</label>
+                            <input type="email" name="leaderEmail" required placeholder="leader@icfaijaipur.edu.in"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Team Name *</label>
+                            <input type="text" name="teamName" required placeholder="Enter unique team name"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Contact Number *</label>
+                                <input type="tel" name="leaderContact" required placeholder="Enter contact number"
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Gender *</label>
+                                <select name="leaderGender" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: First Team Member Registration -->
+                    <div class="form-step space-y-2.5 hidden" data-step="2">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Student Name *</label>
+                            <input type="text" name="member1Name" required placeholder="Enter member name"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Select Branch *</label>
+                                <select name="member1Branch" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Branch</option>
+                                    <option value="BTech-CSE">BTech-CSE</option>
+                                    <option value="BTech-AI&DS">BTech-AI&DS</option>
+                                    <option value="BCA-Gen">BCA-Gen</option>
+                                    <option value="BCA-DS">BCA-DS</option>
+                                    <option value="BCA-AI">BCA-AI</option>
+                                    <option value="BCA-CYBER">BCA-CYBER</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="Other-Branch">Other-Branch</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Year *</label>
+                                <select name="member1Year" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Email ID *</label>
+                            <input type="email" name="member1Email" required placeholder="member1@icfaijaipur.edu.in"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Contact Number *</label>
+                                <input type="tel" name="member1Contact" required placeholder="Enter contact number"
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Gender *</label>
+                                <select name="member1Gender" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Second Team Member Registration -->
+                    <div class="form-step space-y-2.5 hidden" data-step="3">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Student Name *</label>
+                            <input type="text" name="member2Name" required placeholder="Enter member name"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Select Branch *</label>
+                                <select name="member2Branch" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Branch</option>
+                                    <option value="BTech-CSE">BTech-CSE</option>
+                                    <option value="BTech-AI&DS">BTech-AI&DS</option>
+                                    <option value="BCA-Gen">BCA-Gen</option>
+                                    <option value="BCA-DS">BCA-DS</option>
+                                    <option value="BCA-AI">BCA-AI</option>
+                                    <option value="BCA-CYBER">BCA-CYBER</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="Other-Branch">Other-Branch</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Year *</label>
+                                <select name="member2Year" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Email ID *</label>
+                            <input type="email" name="member2Email" required placeholder="member2@icfaijaipur.edu.in"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Contact Number *</label>
+                                <input type="tel" name="member2Contact" required placeholder="Enter contact number"
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Gender *</label>
+                                <select name="member2Gender" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Third Team Member Registration -->
+                    <div class="form-step space-y-2.5 hidden" data-step="4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Student Name *</label>
+                            <input type="text" name="member3Name" required placeholder="Enter member name"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Select Branch *</label>
+                                <select name="member3Branch" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Branch</option>
+                                    <option value="BTech-CSE">BTech-CSE</option>
+                                    <option value="BTech-AI&DS">BTech-AI&DS</option>
+                                    <option value="BCA-Gen">BCA-Gen</option>
+                                    <option value="BCA-DS">BCA-DS</option>
+                                    <option value="BCA-AI">BCA-AI</option>
+                                    <option value="BCA-CYBER">BCA-CYBER</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="Other-Branch">Other-Branch</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Year *</label>
+                                <select name="member3Year" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Email ID *</label>
+                            <input type="email" name="member3Email" required placeholder="member3@icfaijaipur.edu.in"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Contact Number *</label>
+                                <input type="tel" name="member3Contact" required placeholder="Enter contact number"
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Gender *</label>
+                                <select name="member3Gender" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Fourth Team Member Registration -->
+                    <div class="form-step space-y-2.5 hidden" data-step="5">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Student Name *</label>
+                            <input type="text" name="member4Name" required placeholder="Enter member name"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Select Branch *</label>
+                                <select name="member4Branch" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Branch</option>
+                                    <option value="BTech-CSE">BTech-CSE</option>
+                                    <option value="BTech-AI&DS">BTech-AI&DS</option>
+                                    <option value="BCA-Gen">BCA-Gen</option>
+                                    <option value="BCA-DS">BCA-DS</option>
+                                    <option value="BCA-AI">BCA-AI</option>
+                                    <option value="BCA-CYBER">BCA-CYBER</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="Other-Branch">Other-Branch</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Year *</label>
+                                <select name="member4Year" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Email ID *</label>
+                            <input type="email" name="member4Email" required placeholder="member4@icfaijaipur.edu.in"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Contact Number *</label>
+                                <input type="tel" name="member4Contact" required placeholder="Enter contact number"
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Gender *</label>
+                                <select name="member4Gender" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 6: Fifth Team Member Registration -->
+                    <div class="form-step space-y-2.5 hidden" data-step="6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Student Name *</label>
+                            <input type="text" name="member5Name" required placeholder="Enter member name"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Select Branch *</label>
+                                <select name="member5Branch" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Branch</option>
+                                    <option value="BTech-CSE">BTech-CSE</option>
+                                    <option value="BTech-AI&DS">BTech-AI&DS</option>
+                                    <option value="BCA-Gen">BCA-Gen</option>
+                                    <option value="BCA-DS">BCA-DS</option>
+                                    <option value="BCA-AI">BCA-AI</option>
+                                    <option value="BCA-CYBER">BCA-CYBER</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="MBA">MBA</option>
+                                    <option value="Other-Branch">Other-Branch</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Year *</label>
+                                <select name="member5Year" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-200 mb-1">Email ID *</label>
+                            <input type="email" name="member5Email" required placeholder="member5@icfaijaipur.edu.in"
+                                class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Contact Number *</label>
+                                <input type="tel" name="member5Contact" required placeholder="Enter contact number"
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 mb-1">Gender *</label>
+                                <select name="member5Gender" required
+                                    class="w-full bg-slate-950/90 border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-amber-500 transition-colors">
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex items-center justify-between pt-3 gap-3">
+                        <button type="button" id="prevBtn" onclick="changeStep(-1)"
+                            class="hidden bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold px-5 py-2.5 rounded-xl transition-all text-xs sm:text-sm">
+                            &larr; Previous
+                        </button>
+                        <button type="button" id="nextBtn" onclick="changeStep(1)"
+                            class="w-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-black font-black py-3 rounded-xl transition-all text-xs sm:text-sm shadow-xl shadow-amber-500/20 hover:scale-[1.02] active:scale-95 text-center">
+                            Next Step &rarr;
+                        </button>
+                        <button type="submit" id="submitBtn"
+                            class="hidden w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-black font-black py-3 rounded-xl transition-all text-xs sm:text-sm shadow-xl shadow-green-500/20 hover:scale-[1.02] active:scale-95 text-center">
+                            Submit Form ✓
+                        </button>
+                    </div>
+
+                    <div id="formFeedback"
+                        class="hidden p-3 rounded-xl bg-green-500/20 border border-green-500/40 text-green-300 text-xs sm:text-sm font-bold text-center">
+                        ✅ Thank you! All 6 team members have been registered successfully.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#030712] border-t border-slate-900 pt-16 pb-12 relative z-10 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
+            <div class="space-y-1">
+                <h3 class="text-lg sm:text-2xl md:text-3xl font-extrabold text-white tracking-wide">
+                    &copy; 2026 Smart India Hackathon, Organised by <span class="text-amber-400">ICFAI University,
+                        Jaipur</span>.
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-400 font-medium pt-1">
+                    Himanshu Puri: 9983196824
+                </p>
+            </div>
+
+            <div class="w-full max-w-5xl mx-auto border-t border-slate-800/80 my-8"></div>
+
+            <div
+                class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-400">
+                <div class="flex items-center gap-2">
+                    <span>Developed by :</span>
+                    <a href="https://www.linkedin.com/in/himanshu-puri-b87b44222/" target="_blank"
+                        class="text-slate-300 hover:text-amber-400 transition-colors font-semibold flex items-center gap-1.5">
+                        <svg class="w-4 h-4 fill-current text-blue-500" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z" />
+                        </svg>
+                        Himanshu Puri
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-5 text-slate-400 text-lg">
+                    <a href="http://instagram.com/icfaitech_jaipur/" target="_blank"
+                        class="hover:text-amber-400 transition-colors" aria-label="Instagram">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@TheICFAIUniversityJaipur" target="_blank" class="hover:text-red-500 transition-colors"
+                        aria-label="YouTube">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a2.99 2.99 0 0 0-2.104-2.117C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.394.569A2.99 2.99 0 0 0 .502 6.186C0 8.083 0 12 0 12s0 3.917.502 5.814a2.99 2.99 0 0 0 2.104 2.117C4.495 20.5 12 20.5 12 20.5s7.505 0 9.394-.569a2.99 2.99 0 0 0 2.104-2.117C24 15.917 24 12 24 12s0-3.917-.502-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link External JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
