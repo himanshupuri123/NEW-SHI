@@ -9,10 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// MongoDB Connection (Localhost)
-mongoose.connect('mongodb://127.0.0.1:27017/sih2026DB')
-.then(() => console.log('MongoDB Connected Successfully for SIH 2026!'))
-.catch((err) => console.log('Database Connection Error: ', err));
+// MongoDB Connection 
+const MONGO_URI = process.env.MONGO_URI; 
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("MongoDB Connected Successfully"))
+  .catch(err => console.log("Connection Error: ", err));
 
 // Mongoose Schema for Team Registration
 const teamSchema = new mongoose.Schema({
