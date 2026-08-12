@@ -9,6 +9,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+const path = require('path');
+
+// Static files (HTML, CSS, JS) serve karne ke liye
+app.use(express.static(path.join(__dirname)));
+
+// Root URL par index.html bhejne ke liye
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // MongoDB Connection 
 const MONGO_URI = process.env.MONGO_URI; 
 mongoose.connect(MONGO_URI)
