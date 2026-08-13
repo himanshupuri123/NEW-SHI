@@ -12,7 +12,7 @@ app.use(cors());
 const path = require('path');
 
 // Static files (HTML, CSS, JS) serve karne ke liye
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Root URL par index.html bhejne ke liye
 app.get('/', (req, res) => {
