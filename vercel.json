@@ -1,9 +1,8 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/server.js" },
-    { "source": "/style.css", "destination": "/style.css" },
-    { "source": "/script.js", "destination": "/script.js" },
-    { "source": "/sihposter.png", "destination": "/sihposter.png" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/api/(.*)",
+      "destination": "/server.js"
+    }
   ]
 }
