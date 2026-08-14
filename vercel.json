@@ -1,12 +1,15 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/index.html",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/server.js"
-    },
-    {
-      "source": "/",
-      "destination": "/index.html"
     }
   ]
 }
