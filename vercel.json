@@ -1,19 +1,15 @@
 {
-  "version": 2,
-  "builds": [
+  "redirects": [
     {
-      "src": "api/register.js",
-      "use": "@vercel/node"
+      "source": "/",
+      "destination": "/index.html",
+      "permanent": false
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/register.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/public/$1"
+      "source": "/api/(.*)",
+      "destination": "/server.js"
     }
   ]
 }
