@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
-// MongoDB connection cache
+// =====================================================
+// MongoDB Connection Cache
+// =====================================================
+
 let cached = global.mongoose;
 
 if (!cached) {
@@ -10,7 +13,10 @@ if (!cached) {
     };
 }
 
+// =====================================================
 // Connect to MongoDB
+// =====================================================
+
 async function connectDB() {
     if (cached.conn) {
         return cached.conn;
@@ -35,11 +41,16 @@ async function connectDB() {
     return cached.conn;
 }
 
-
+// =====================================================
 // Team Registration Schema
+// =====================================================
+
 const teamSchema = new mongoose.Schema(
     {
+        // -----------------------------
         // Team Leader
+        // -----------------------------
+
         leaderName: {
             type: String,
             required: true,
@@ -81,8 +92,10 @@ const teamSchema = new mongoose.Schema(
             trim: true
         },
 
-
+        // -----------------------------
         // Member 1
+        // -----------------------------
+
         member1Name: String,
         member1Branch: String,
         member1Year: String,
@@ -90,8 +103,10 @@ const teamSchema = new mongoose.Schema(
         member1Contact: String,
         member1Gender: String,
 
-
+        // -----------------------------
         // Member 2
+        // -----------------------------
+
         member2Name: String,
         member2Branch: String,
         member2Year: String,
@@ -99,8 +114,10 @@ const teamSchema = new mongoose.Schema(
         member2Contact: String,
         member2Gender: String,
 
-
+        // -----------------------------
         // Member 3
+        // -----------------------------
+
         member3Name: String,
         member3Branch: String,
         member3Year: String,
@@ -108,8 +125,10 @@ const teamSchema = new mongoose.Schema(
         member3Contact: String,
         member3Gender: String,
 
-
+        // -----------------------------
         // Member 4
+        // -----------------------------
+
         member4Name: String,
         member4Branch: String,
         member4Year: String,
@@ -117,8 +136,10 @@ const teamSchema = new mongoose.Schema(
         member4Contact: String,
         member4Gender: String,
 
-
+        // -----------------------------
         // Member 5
+        // -----------------------------
+
         member5Name: String,
         member5Branch: String,
         member5Year: String,
@@ -126,6 +147,9 @@ const teamSchema = new mongoose.Schema(
         member5Contact: String,
         member5Gender: String,
 
+        // -----------------------------
+        // Registration Date
+        // -----------------------------
 
         registeredAt: {
             type: Date,
@@ -137,17 +161,21 @@ const teamSchema = new mongoose.Schema(
     }
 );
 
+// =====================================================
+// Avoid Mongoose Model Recompilation on Vercel
+// =====================================================
 
-// Avoid model recompilation on Vercel
 const Team =
     mongoose.models.Team ||
     mongoose.model("Team", teamSchema);
 
-
+// =====================================================
 // API Handler
+// =====================================================
+
 module.exports = async (req, res) => {
 
-    // Allow only POST
+    // Only POST request allowed
     if (req.method !== "POST") {
         return res.status(405).json({
             success: false,
@@ -157,12 +185,22 @@ module.exports = async (req, res) => {
 
     try {
 
+        // ---------------------------------------------
         // Connect MongoDB
+        // ---------------------------------------------
+
         await connectDB();
+
+        // ---------------------------------------------
+        // Get form data
+        // ---------------------------------------------
 
         const formData = req.body || {};
 
+        // ---------------------------------------------
         // Basic validation
+        // ---------------------------------------------
+
         if (!formData.teamName || !formData.leaderEmail) {
             return res.status(400).json({
                 success: false,
@@ -170,10 +208,22 @@ module.exports = async (req, res) => {
             });
         }
 
+        // ---------------------------------------------
+        // Clean values
+        // ---------------------------------------------
 
+        const teamName = String(formData.teamName).trim();
+
+        const leaderEmail = String(formData.leaderEmail)
+            .toLowerCase()
+            .trim();
+
+        // ---------------------------------------------
         // Check existing Team Name
+        // ---------------------------------------------
+
         const existingTeam = await Team.findOne({
-            teamName: formData.teamName
+            teamName: teamName
         });
 
         if (existingTeam) {
@@ -183,10 +233,12 @@ module.exports = async (req, res) => {
             });
         }
 
-
+        // ---------------------------------------------
         // Check existing Leader Email
+        // ---------------------------------------------
+
         const existingLeader = await Team.findOne({
-            leaderEmail: formData.leaderEmail.toLowerCase()
+            leaderEmail: leaderEmail
         });
 
         if (existingLeader) {
@@ -196,30 +248,39 @@ module.exports = async (req, res) => {
             });
         }
 
+        // ---------------------------------------------
+        // Create Team
+        // ---------------------------------------------
 
-        // Create team
         const newTeam = new Team({
             ...formData,
-            leaderEmail: formData.leaderEmail.toLowerCase().trim(),
-            teamName: formData.teamName.trim()
+            teamName: teamName,
+            leaderEmail: leaderEmail
         });
 
-
+        // ---------------------------------------------
         // Save to MongoDB
+        // ---------------------------------------------
+
         await newTeam.save();
 
+        // ---------------------------------------------
+        // Success Response
+        // ---------------------------------------------
 
         return res.status(201).json({
             success: true,
             message: "Team registered successfully!"
         });
 
-
     } catch (error) {
 
         console.error("Registration Error:", error);
 
+        // ---------------------------------------------
         // Duplicate key error
+        // ---------------------------------------------
+
         if (error.code === 11000) {
             return res.status(400).json({
                 success: false,
@@ -227,6 +288,9 @@ module.exports = async (req, res) => {
             });
         }
 
+        // ---------------------------------------------
+        // Server Error
+        // ---------------------------------------------
 
         return res.status(500).json({
             success: false,

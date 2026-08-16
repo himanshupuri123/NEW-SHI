@@ -208,8 +208,3 @@ function handleFinalSubmit(e) {
     }, 800);
 });
 }
-
-
-
-
-
