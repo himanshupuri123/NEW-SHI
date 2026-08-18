@@ -81,3 +81,34 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #3B82F6;
 }
+
+
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+}
+
+.success-content {
+    text-align: center;
+}
+
+.success-content h2 {
+    margin-bottom: 10px;
+}
+
+.success-content p {
+    margin-bottom: 5px;
+}
