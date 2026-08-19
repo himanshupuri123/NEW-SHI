@@ -4,7 +4,7 @@ function toggleMobileMenu() {
 }
 
 function updateCountdown() {
-    const targetDate = new Date("September 15, 2026 23:59:59").getTime();
+    const targetDate = new Date("September 1, 2026 23:59:59").getTime();
     const now = new Date().getTime();
     const difference = targetDate - now;
 
